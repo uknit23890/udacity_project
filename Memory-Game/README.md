@@ -12,5 +12,6 @@ This is a wholesome browser card matching game as part of learning of javascript
 
 
 ## How to Run: 
-
+1. [Download](https://github.com/uknit23890/udacity_project/Memory-Game.zip) or [Clone](https://github.com/uknit23890/udacity_project/Memory-Game.git) the Repository.
+2. Open `index.html` file with any browser to view the project.
 

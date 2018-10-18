@@ -1,0 +1,13 @@
+<div style="padding:20px;"
+     class="card"
+     [ngStyle]="{'background-color': (selected) ?  'orange' : 'white' }">
+
+  <h2>{{item.from}} - {{item.to}}</h2>
+  <p>Flight No. #{{item.id}}</p>
+  <p>Date : {{item.date | date:'dd.MM.yyyy HH:mm'}}</p>
+
+  <p>
+    <button class="btn btn-default" *ngIf="!selected" (click)="select()">Select</button>
+    <button class="btn btn-default" *ngIf="selected" (click)="deselect()">UnSelect</button>
+  </p>
+</div>

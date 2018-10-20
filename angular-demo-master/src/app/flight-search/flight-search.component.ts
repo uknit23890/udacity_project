@@ -6,58 +6,66 @@ import { FlightService } from './flight.service';
 @Component({
   selector: 'flight-search',
   templateUrl: './flight-search.component.html',
-  //providers: [FlightService]
 })
 export class FlightSearchComponent {
 
   from: string;
   to: string;
-
+  date: string;
+  flightNum: string;
   isFlightAvailable: boolean;
   selectedFlight: Flight;
-
-  // any: number, booleans, string, objects
-
-  basket: object = {
-    "3": true,
-    "4": false,
-    "5": true
-  };
-
-  //private http: Http;
+  cities =['Ahmedabad','Pune','Delhi', 'Mumbai'];
+  flightList: Array<Flight> = [];
+  selected: string = '';
 
   constructor(private flightService: FlightService, private http: Http) {
 
     console.debug('In Flight Service Component');
   }
 
-  // flights: Array<Flight> = [];
 
   get flights(): Array<Flight> {
+    this.flightList = this.flightService.flights;
     return this.flightService.flights;
   }
 
-
-  call() {
-    this.http.get('http://localhost:3000/user').map((res: Response) => { console.log(res.json()); });
-  }
   // This method parses the data to JSON
   private parseData(res: Response)  {
     return res.json() || [];
   }
 
+  /**
+   * To get all the flights available.
+   */
   getAllFlights() {
+    this.flightService.all();
+  }
+
+  /**
+   * To fetch the list of flights based on the flight number.
+   */
+  findByFlightNumber() {
+    this.flightService.findByFlightNumber(this.flightNum);
 
   }
 
+  /**
+   * To search the flights based on the flight origin and destination with date of journey.
+   */
   search(): void {
- //   this.call();
     this.isFlightAvailable = true;
-    this.flightService.find(this.from, this.to);
-
+    this.flightService.find(this.from, this.to, this.date);
   }
 
   select(f: Flight) {
     this.selectedFlight = f;
+  }
+
+  mychange(val){
+    var self = this;
+    var chIbn = this.date.split("/").join("-");
+   console.log(chIbn);
+   this.date = chIbn;
   }
 }

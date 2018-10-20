@@ -2,9 +2,9 @@
      class="card"
      [ngStyle]="{'background-color': (selected) ?  'orange' : 'white' }">
 
-  <h2>{{item.from}} - {{item.to}}</h2>
-  <p>Flight No. #{{item.id}}</p>
-  <p>Date : {{item.date | date:'dd.MM.yyyy HH:mm'}}</p>
+  <h2>{{item.from_city}} - {{item.to_city}}</h2>
+  <p>Flight No. #{{item._id}}</p>
+  <p>Date : {{item.date | date:'dd.MM.yyyy'}}</p>
 
   <p>
     <button class="btn btn-default" *ngIf="!selected" (click)="select()">Select</button>

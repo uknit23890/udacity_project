@@ -10,7 +10,6 @@ import { APP_ROUTES } from "app/app.routes";
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { FlightService } from './flight-search/flight.service';
 import { FlightCardComponent } from './flight-search/flight-card.component';
-import { FlightListComponent } from './flight-list/flight-list.component';
 
 @NgModule({
   imports: [
@@ -25,12 +24,9 @@ import { FlightListComponent } from './flight-list/flight-list.component';
     AboutComponent,
     FlightSearchComponent,
     FlightCardComponent,
-    FlightListComponent
   ],
   providers: [
     FlightService
-    // { provide: FlightService, useClass: FlightService }
-    // FlightService
   ],
   bootstrap: [AppComponent]
 })

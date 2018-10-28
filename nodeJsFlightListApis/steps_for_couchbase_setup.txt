@@ -1,0 +1,5 @@
+To run the couchbase queries :
+1. one need to have couchbase server latest version 5.5 installed on the machine
+2. Cluster created
+3. bucket created named as 'flights'
+4. after that data of flights must be inserted in the bucket to query and fetch them from application.
